@@ -1,0 +1,78 @@
+swagger: "2.0"
+info:
+  description: "MobioTune api documentation"
+  version: "1.0.0"
+  title: "MobioTune"
+#   termsOfService: "http://swagger.io/terms/"
+#   contact:
+#     email: "apiteam@swagger.io"
+#   license:
+#     name: "Apache 2.0"
+#     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:3005"
+basePath: "/api"
+schemes:
+- "http"
+securityDefinitions:
+  Bearer:
+    description: For accessing the API a valid token must be passed in all the queries
+    type: apiKey
+    name: authorization
+    in: header
+paths:
+  /customers:
+    post:
+      tags:
+      - "User"
+      summary: "Customers"
+      description: "Create account"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "firstname"
+        type: "string"
+      - name: "lastname"
+        type: "string"
+      - name: "age"
+        type: "integer"
+      responses:
+        200:
+          description: "successful operation"
+        500:
+          description: "Internal Server Error"
+  /checkAccess:
+    get:
+      tags:
+      - "UIP"
+      summary: "check access"
+      description: "check access"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "query"
+        description: "uid in query paramaters"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Unauthorized"
+        401:
+          description: "Bad Request"
+        500:
+          description: "Internal Server Error"
+definitions:
+  customersSchema:
+    type: "object"
+    required:
+    properties:
+      firstname:
+        type: "string"
+      lastname:
+        type: "string"
+      age:
+        type: "integer"
