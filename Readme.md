@@ -1,7 +1,4 @@
-# MobioTune
-> MobioTune api project using expressjs framework and mysql database
 
-## Installation
 
 ```sh
 npm install
