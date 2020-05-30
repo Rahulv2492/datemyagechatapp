@@ -11,10 +11,9 @@ PORT = 3005
 ENV = development
 DBHOST = <your mysql database host>
 DBPORT = <mysql databse port>
-DBNAME = 'mobiotune'
+DBNAME = ''
 DBUSER = <mysql databse username>
 DBPWD = <mysql databse password>
-SECRET = AIzaSyAQfxPJiounkhOjODEO5ZieffeBv6yft2Q
 ```
 * Create database in mysql, named - mobiotune
 * Insert table - `npm run insert:table`
